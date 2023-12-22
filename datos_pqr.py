@@ -17,7 +17,15 @@ reg_1427 = pd.read_excel(r"C:\Users\daale\OneDrive - NUEVA EPS\CERTIFICADOS DECR
 
 
 
-df = pd.DataFrame(reg_1427)
-df = df[['NUMERO_PQR']].sum
+df = pd.DataFrame(cert_1427)
+# df = df[['NUMERO_PQR']].sum
 
-print(df)
+nombre_columna = ['Datos']
+df.columns = nombre_columna
+
+separados = df[['TD', 'Documento', 'Nombre1', 'Nombre 2', 'Nombre3', 'Apellido1', 'Apellido2', 'Apellido3']] =   df['Datos'].str.split(' ' , expand=True) 
+
+df2 = pd.DataFrame(separados)
+
+
+print(df2)
