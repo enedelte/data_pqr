@@ -54,6 +54,10 @@ reg_1427['N_INCAPACIDAD_FINAL'] = pd.to_numeric(reg_1427['N_INCAPACIDAD_FINAL'],
 reg_1427 = reg_1427.dropna(subset=['N_INCAPACIDAD_FINAL'])
 reg_1427['N_INCAPACIDAD_FINAL'] = reg_1427['N_INCAPACIDAD_FINAL'].astype(int)
 
+# Quitar espacios vacios en Documento
+reg_1427['DOCUMENTO'] = reg_1427['DOCUMENTO'].astype(str).str.strip()
+
+
 # Crear DataFrame a partir de cert_1427
 datos_cert_1427 = pd.DataFrame(cert_1427)
 # Poner nombre a la columna de datos
